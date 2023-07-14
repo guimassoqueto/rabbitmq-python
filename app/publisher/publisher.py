@@ -13,7 +13,7 @@ class RabbitMQPublisher:
     self.connection = BlockingConnection(ConnectionParameters(RABBITMQ_DEFAULT_HOST,credentials=self.credentials))
     self.channel = self.connection.channel()
     self.queue_name = queue_name
-    self.channel.queue_declare(self.queue_name)
+    self.channel.queue_declare(self.queue_name, durable=False)
 
   def publish_message(self, message: str | bytes):
     self.channel.basic_publish(exchange='', routing_key=self.queue_name, body=message)
