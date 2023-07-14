@@ -19,8 +19,16 @@ make u
 
 4. init pre-commit configurations see [.pre-commit-config.yaml](.pre-commit-config.yaml)
 ```shell
-m pc
+make pc
 ```
 
+5. init the rabbitMQ container
 ```shell
+make rmq
+```
+
+## rabbitMQ commands
+1. [List queues and messages] inside the rabbitmq container:
+```shell
+rabbitmqctl list_queues
 ```
