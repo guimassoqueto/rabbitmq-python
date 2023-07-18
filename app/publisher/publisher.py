@@ -2,9 +2,10 @@ from app.settings import(
                           RABBITMQ_DEFAULT_HOST, 
                           RABBITMQ_DEFAULT_USER, 
                           RABBITMQ_DEFAULT_PASS, 
-                          RABBITMQ_MAIN_QUEUE
+                          RABBITMQ_MAIN_QUEUE,
                         )
-from pika import BlockingConnection, ConnectionParameters, PlainCredentials
+from pika import BlockingConnection, ConnectionParameters, PlainCredentials, BasicProperties
+from pika.spec import PERSISTENT_DELIVERY_MODE
 
 
 class RabbitMQPublisher:
@@ -16,10 +17,10 @@ class RabbitMQPublisher:
     self.channel.queue_declare(self.queue_name, durable=False)
 
   def publish_message(self, message: str | bytes):
-    self.channel.basic_publish(exchange='', routing_key=self.queue_name, body=message)
+    self.channel.basic_publish(exchange='', 
+                               routing_key=self.queue_name, 
+                               body=message, 
+                               properties=BasicProperties(delivery_mode=PERSISTENT_DELIVERY_MODE)
+                              )
+    self.channel.basic_qos(prefetch_count=1)
     self.connection.close()
-
-from json import dumps
-p = RabbitMQPublisher()
-message = {'guilherme': 'boiola'}
-p.publish_message(dumps(message))
