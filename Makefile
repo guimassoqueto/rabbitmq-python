@@ -1,3 +1,6 @@
+a:
+	poetry run python main.py
+
 # install all dependencies
 s: 
 	poetry shell
