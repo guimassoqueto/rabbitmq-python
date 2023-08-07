@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "rabbit-mq-python"
-version = "1.0.0"
+name = "scrap-template-requester"
+version = "3.0.0"
 description = ""
 authors = ["guimassoqueto <gui.massoqueto@gmail.com>"]
 readme = "README.md"
