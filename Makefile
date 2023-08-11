@@ -21,3 +21,6 @@ rmq:
 
 or:
 	open https://github.com/guimassoqueto/rabbitmq-python
+
+env:
+	cp .env.sample .env
