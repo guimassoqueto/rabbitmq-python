@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "scrap-template-requester"
-version = "3.0.1"
-description = ""
+version = "3.0.2"
+description = "Scrap Template Requester"
 authors = ["guimassoqueto <gui.massoqueto@gmail.com>"]
 readme = "README.md"
 packages = [
