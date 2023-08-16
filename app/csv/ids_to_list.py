@@ -6,5 +6,5 @@ def ids_to_list(csv_file: str) -> List[str]:
   with open(csv_file, 'r', encoding='utf-8') as f:
     reader = DictReader(f, delimiter=',')
     for row in reader:
-      pid_list.append(row['id'].split('/')[-1])
+      pid_list.append(row['id'])
   return pid_list
