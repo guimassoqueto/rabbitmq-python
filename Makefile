@@ -19,8 +19,11 @@ pc:
 rmq:
 	docker compose up rabbitmq -d
 
+rm:
+	>/home/gmassoqueto/scrap/scrap-fiber/static/thunder/tmp.txt && rm /home/gmassoqueto/scrap/scrap-fiber/static/thunder/*
+
 or:
-	open https://github.com/guimassoqueto/rabbitmq-python
+	make rm && open https://github.com/guimassoqueto/scrap-template-requester
 
 env:
 	cp .env.sample .env
